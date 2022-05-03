@@ -1,12 +1,12 @@
 #!/bin/bash -l
 
-#SBATCH --job-name=rna_PRJNA523380
+#SBATCH --job-name=sra_to_bam_PRJNA523380
 #SBATCH --mail-user=george.bouras@adelaide.edu.au
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
-#SBATCH --err="rna_PRJNA523380_snk.err"
-#SBATCH --output="rna_PRJNA523380_snk.out"
+#SBATCH --err="sra_to_bam_PRJNA523380_snk.err"
+#SBATCH --output="sra_to_bam_PRJNA523380_snk.out"
 
 # Resources allocation request parameters
 #SBATCH -p batch
@@ -16,7 +16,7 @@
 #SBATCH --mem=4GB                                              # specify memory required per node
 
 
-SNK_DIR="/hpcfs/users/a1667917/Kevin/RNA_Seq_Deconv_Pipeline"
+SNK_DIR="/hpcfs/users/a1667917/Kenny/RNA_Seq_SRA/SRA_to_BAM"
 PROF_DIR="/hpcfs/users/a1667917/snakemake_slurm_profile"
 
 cd $SNK_DIR
@@ -24,6 +24,6 @@ cd $SNK_DIR
 module load Anaconda3/2020.07
 conda activate snakemake_clean_env
 
-snakemake -s rna_seq_runner.smk --use-conda --config ReadLength=200 Fastqs = True  Reads=/hpcfs/users/a1667917/Kevin/TCGA_RNA_Total_Bams/  Output=/hpcfs/users/a1667917/Kevin/RNA_TCGA_Out HG38_dir='/hpcfs/users/a1667917/STAR_Ref_Genomes' Salmon_dir='/hpcfs/users/a1667917/Salmon_Ref_Genomes' --profile wgs_tcga
-
+snakemake -s runner.smk -c 1 --use-conda --config Input='/hpcfs/users/a1667917/Kenny/RNA_Seq_SRA/PRJNA453457/sras' Output='/hpcfs/users/a1667917/Kenny/RNA_Seq_SRA/PRJNA453457/bams' \
+ --conda-create-envs-only --conda-frontend conda --profile $PROF_DIR/wgs_tcga
 conda deactivate
