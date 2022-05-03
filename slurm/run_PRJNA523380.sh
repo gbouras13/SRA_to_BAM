@@ -25,5 +25,5 @@ module load Anaconda3/2020.07
 conda activate snakemake_clean_env
 
 snakemake -s runner.smk -c 1 --use-conda --config Input='/hpcfs/users/a1667917/Kenny/RNA_Seq_SRA/PRJNA453457/sras' Output='/hpcfs/users/a1667917/Kenny/RNA_Seq_SRA/PRJNA453457/bams' \
- --conda-create-envs-only --conda-frontend conda --profile $PROF_DIR/wgs_tcga
+--profile $PROF_DIR/wgs_tcga
 conda deactivate

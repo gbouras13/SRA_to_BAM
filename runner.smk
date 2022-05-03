@@ -11,6 +11,7 @@ snakemake -s runner.smk -c 1 --use-conda --config Input=sras Output=bams  --cond
 OUTPUT = config['Output']
 INPUT = config['Input']
 BigJobMem = 24000
+MediumJobMem = 24000
 
 
 # Parse the samples and read files
