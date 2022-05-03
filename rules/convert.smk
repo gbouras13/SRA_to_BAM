@@ -14,7 +14,7 @@ rule convert_to_sam:
         sam-dump {input[0]} > {output[0]}
         """
 
-rule convert_to_sam:
+rule convert_to_bam:
     input:
         os.path.join(OUTPUT,"{sample}.sam"),
     output:
