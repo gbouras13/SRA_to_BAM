@@ -13,6 +13,9 @@ INPUT = config['Input']
 BigJobMem = 24000
 MediumJobMem = 24000
 
+# needs to be created before the run
+if not os.path.exists(OUTPUT):
+  os.makedirs(OUTPUT)
 
 # Parse the samples and read files
 include: "rules/samples.smk"
