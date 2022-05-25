@@ -1,12 +1,12 @@
 #!/bin/bash -l
 
-#SBATCH --job-name=sra_to_bam_PRJNA523380
+#SBATCH --job-name=sra_to_bam_PRJNA453457
 #SBATCH --mail-user=george.bouras@adelaide.edu.au
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
-#SBATCH --err="sra_to_bam_PRJNA523380_snk.err"
-#SBATCH --output="sra_to_bam_PRJNA523380_snk.out"
+#SBATCH --err="sra_to_bam_PRJNA453457_snk.err"
+#SBATCH --output="sra_to_bam_PRJNA453457_snk.out"
 
 # Resources allocation request parameters
 #SBATCH -p batch
